@@ -1,0 +1,202 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Search, Mail, Phone, MapPin } from "lucide-react";
+
+// Default-exported single-file React component
+// Tailwind-based, uses shadcn/ui components and lucide-react icons (available in the environment)
+
+export default function StarterWebsite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-xl font-bold shadow-lg">A</div>
+          <div>
+            <h1 className="text-xl font-semibold">Acme Co.</h1>
+            <p className="text-sm text-slate-500">Beautiful starter site — tweak however you like</p>
+          </div>
+        </div>
+        <nav className="hidden md:flex gap-6 items-center text-sm text-slate-600">
+          <a className="hover:text-slate-900" href="#features">Features</a>
+          <a className="hover:text-slate-900" href="#pricing">Pricing</a>
+          <a className="hover:text-slate-900" href="#contact">Contact</a>
+          <Button className="ml-4">Get started</Button>
+        </nav>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-6 pb-20">
+        {/* HERO */}
+        <section className="grid md:grid-cols-2 gap-8 items-center py-12">
+          <motion.div initial={{ x: -30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">Launch a clean, modern website — in minutes.</h2>
+            <p className="mt-4 text-lg text-slate-600">A one-page starter built with React and Tailwind. Production-ready structure and beautiful components to speed up your project.</p>
+
+            <div className="mt-6 flex gap-3">
+              <Button>Start free</Button>
+              <Button className="bg-transparent border">View docs</Button>
+            </div>
+
+            <div className="mt-6 flex items-center gap-3 text-sm text-slate-500">
+              <Search className="w-4 h-4" />
+              <span>Includes search, responsive layout, and components.</span>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ x: 30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }}>
+            <Card className="rounded-2xl shadow-2xl">
+              <CardContent className="p-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-4 bg-white rounded-xl border">Feature A</div>
+                  <div className="p-4 bg-white rounded-xl border">Feature B</div>
+                  <div className="p-4 bg-white rounded-xl border">Feature C</div>
+                  <div className="p-4 bg-white rounded-xl border">Feature D</div>
+                </div>
+                <p className="mt-4 text-sm text-slate-500">Swap these cards for real content — product screenshots, testimonials, or stats.</p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </section>
+
+        {/* FEATURES */}
+        <section id="features" className="py-8">
+          <h3 className="text-2xl font-bold">What you get</h3>
+          <p className="mt-2 text-slate-600">A small collection of polished UI elements and layout sections you'll reuse across pages.</p>
+
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Responsive layout", desc: "Looks great on phones and desktops." },
+              { title: "Components", desc: "Cards, buttons, forms ready to go." },
+              { title: "Accessible semantics", desc: "Headings, aria attributes, focus states." },
+              { title: "Animations", desc: "Light framer-motion motion for polish." },
+              { title: "Easy to customize", desc: "Replace logos, colors, and copy quickly." },
+              { title: "Starter contact form", desc: "Simple client-side form UI included." },
+            ].map((f) => (
+              <div key={f.title} className="p-4 bg-white rounded-2xl shadow-sm border">
+                <h4 className="font-semibold">{f.title}</h4>
+                <p className="mt-1 text-sm text-slate-500">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* PRICING */}
+        <section id="pricing" className="py-8">
+          <h3 className="text-2xl font-bold">Pricing</h3>
+          <p className="mt-2 text-slate-600">Pick a plan that suits you — start free, upgrade later.</p>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-6">
+            <div className="p-6 bg-white rounded-2xl border shadow-sm">
+              <h4 className="text-lg font-semibold">Free</h4>
+              <p className="mt-2 text-3xl font-extrabold">$0<span className="text-sm font-medium">/mo</span></p>
+              <ul className="mt-4 text-sm text-slate-600 space-y-1">
+                <li>Basic components</li>
+                <li>Community support</li>
+              </ul>
+              <div className="mt-6">
+                <Button>Get Free</Button>
+              </div>
+            </div>
+
+            <div className="p-6 bg-white rounded-2xl border shadow-sm">
+              <h4 className="text-lg font-semibold">Pro</h4>
+              <p className="mt-2 text-3xl font-extrabold">$12<span className="text-sm font-medium">/mo</span></p>
+              <ul className="mt-4 text-sm text-slate-600 space-y-1">
+                <li>Everything in Free</li>
+                <li>Premium components</li>
+              </ul>
+              <div className="mt-6">
+                <Button>Choose Pro</Button>
+              </div>
+            </div>
+
+            <div className="p-6 bg-white rounded-2xl border shadow-sm">
+              <h4 className="text-lg font-semibold">Enterprise</h4>
+              <p className="mt-2 text-3xl font-extrabold">Custom</p>
+              <p className="mt-2 text-sm text-slate-600">Contact us for a tailored plan.</p>
+              <div className="mt-6">
+                <Button>Contact sales</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section id="contact" className="py-12">
+          <h3 className="text-2xl font-bold">Contact</h3>
+          <p className="mt-2 text-slate-600">Drop us a line — the form is client-side and ready to wire up to an API.</p>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-8">
+            <div>
+              <form className="space-y-4 bg-white p-6 rounded-2xl border shadow-sm">
+                <label className="block">
+                  <span className="text-sm font-medium">Name</span>
+                  <input className="mt-1 block w-full rounded-md border p-2" placeholder="Your name" />
+                </label>
+
+                <label className="block">
+                  <span className="text-sm font-medium">Email</span>
+                  <input className="mt-1 block w-full rounded-md border p-2" placeholder="you@email.com" type="email" />
+                </label>
+
+                <label className="block">
+                  <span className="text-sm font-medium">Message</span>
+                  <textarea className="mt-1 block w-full rounded-md border p-2" rows={4} placeholder="How can we help?"></textarea>
+                </label>
+
+                <div className="flex items-center justify-between">
+                  <div className="text-sm text-slate-500">We reply within 2 business days.</div>
+                  <Button type="button">Send message</Button>
+                </div>
+              </form>
+            </div>
+
+            <div className="space-y-4">
+              <Card className="rounded-2xl p-4">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5" />
+                  <div>
+                    <div className="text-sm font-medium">Email</div>
+                    <div className="text-sm text-slate-500">hello@acme.example</div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="rounded-2xl p-4">
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5" />
+                  <div>
+                    <div className="text-sm font-medium">Phone</div>
+                    <div className="text-sm text-slate-500">(555) 555-0123</div>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="rounded-2xl p-4">
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-5 h-5" />
+                  <div>
+                    <div className="text-sm font-medium">Address</div>
+                    <div className="text-sm text-slate-500">123 Main St, Springfield</div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <footer className="border-t bg-white py-6">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-sm text-slate-600">© {new Date().getFullYear()} Acme Co. All rights reserved.</div>
+          <div className="flex gap-4 text-sm">
+            <a className="hover:underline" href="#">Privacy</a>
+            <a className="hover:underline" href="#">Terms</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
